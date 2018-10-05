@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)chrome-extension://kmafpcnknacbcgigikdfmjfnmimhpkkg/index.html -->
+<html ng-app="App" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+	<title>Open Plugins</title>
+	<link rel="stylesheet" type="text/css" href="chrome-extension://kmafpcnknacbcgigikdfmjfnmimhpkkg/css/style.css">
+
+	<script src="chrome-extension://kmafpcnknacbcgigikdfmjfnmimhpkkg/js/angular.min.js"></script>
+	<script src="chrome-extension://kmafpcnknacbcgigikdfmjfnmimhpkkg/js/app.js"></script>
+
+</head>
+<body class="open-plugins">
+	<open-plugins class="ng-isolate-scope"><div class="widget">
+    <div class="widget__header">
+        <div class="widget__title">Apps and Extensions</div>
+    </div>
+    <div class="widget__content">
+        <h2 class="section-title">Apps</h2>
+        <div class="g-apps">
+            <!-- ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="Create and edit presentations " ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/aapocclcgogkmnckokdopfmhonfmgoek/128/0" src="chrome://extension-icon/aapocclcgogkmnckokdopfmhonfmgoek/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">Slides</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="Create and edit documents " ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/aohghmighlieiainnegkcijnfilokake/128/0" src="chrome://extension-icon/aohghmighlieiainnegkcijnfilokake/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">Docs</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="Google Drive: create, share and keep all your stuff in one place." ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/apdfllckaahabafndbhieahigkjlhalf/128/0" src="chrome://extension-icon/apdfllckaahabafndbhieahigkjlhalf/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">Google Drive</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="" ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/blpcfgokakmgnkcojhhkbfbldkacnbeo/128/0" src="chrome://extension-icon/blpcfgokakmgnkcojhhkbfbldkacnbeo/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">YouTube</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="Create and edit spreadsheets" ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/felcaaldnbdncclmgdcncolpebgiejap/128/0" src="chrome://extension-icon/felcaaldnbdncclmgdcncolpebgiejap/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">Sheets</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} --><a class="g-apps__item ng-scope" ng-repeat="item in extensions | filter:{type:&#39;_app&#39;}" title="Fast, searchable email with less spam." ng-click="appLaunch(item.appLaunchUrl)">
+                <span class="g-apps__icon">
+                    <img ng-src="chrome://extension-icon/pjkljhegncpnkpknbcohdijeoejaedia/128/0" src="chrome://extension-icon/pjkljhegncpnkpknbcohdijeoejaedia/128/0">
+                </span>
+                <span class="g-apps__title ng-binding">Gmail</span>
+            </a><!-- end ngRepeat: item in extensions | filter:{type:'_app'} -->
+        </div>
+        <h2 class="section-title" ng-show="filteredExtensions.length &gt; 1">Extensions</h2>
+        <ul class="extensions" ng-show="filteredExtensions.length &gt; 1">
+            <!-- ngRepeat: item in filteredExtensions=( extensions | filter:{type:'extension'} ) --><!-- ngIf: item.id != extensionId --><li class="extensions__item ng-scope" ng-repeat="item in filteredExtensions=( extensions | filter:{type:&#39;extension&#39;} )" ng-class="{&#39;disabled&#39; : !item.enabled}" ng-if="item.id != extensionId">
+                <img class="extensions__icon" ng-src="chrome://extension-icon/fheoggkfdfchfphceeifdbepaooicaho/128/0" ng-srcset="chrome://extension-icon/fheoggkfdfchfphceeifdbepaooicaho/128/0 2x" src="chrome://extension-icon/fheoggkfdfchfphceeifdbepaooicaho/128/0" srcset="chrome://extension-icon/fheoggkfdfchfphceeifdbepaooicaho/128/0 2x">
+                <span class="extensions__title ng-binding" title="McAfee® WebAdvisor">McAfee® WebAdvisor</span>
+                <span class="extensions__manage ng-binding" ng-click="enable(item)">Disable</span>
+                <span class="cancel" title="Remove form Chrome" ng-click="uninstall(item.id)"></span>
+            </li><!-- end ngIf: item.id != extensionId --><!-- end ngRepeat: item in filteredExtensions=( extensions | filter:{type:'extension'} ) --><!-- ngIf: item.id != extensionId --><li class="extensions__item ng-scope" ng-repeat="item in filteredExtensions=( extensions | filter:{type:&#39;extension&#39;} )" ng-class="{&#39;disabled&#39; : !item.enabled}" ng-if="item.id != extensionId">
+                <img class="extensions__icon" ng-src="chrome://extension-icon/ghbmnnjooekpmoecnnnilnnbdlolhkhi/128/0" ng-srcset="chrome://extension-icon/ghbmnnjooekpmoecnnnilnnbdlolhkhi/128/0 2x" src="chrome://extension-icon/ghbmnnjooekpmoecnnnilnnbdlolhkhi/128/0" srcset="chrome://extension-icon/ghbmnnjooekpmoecnnnilnnbdlolhkhi/128/0 2x">
+                <span class="extensions__title ng-binding" title="Get things done offline with the Google Docs family of products.">Google Docs Offline</span>
+                <span class="extensions__manage ng-binding" ng-click="enable(item)">Disable</span>
+                <span class="cancel" title="Remove form Chrome" ng-click="uninstall(item.id)"></span>
+            </li><!-- end ngIf: item.id != extensionId --><!-- end ngRepeat: item in filteredExtensions=( extensions | filter:{type:'extension'} ) --><!-- ngIf: item.id != extensionId --><li class="extensions__item ng-scope" ng-repeat="item in filteredExtensions=( extensions | filter:{type:&#39;extension&#39;} )" ng-class="{&#39;disabled&#39; : !item.enabled}" ng-if="item.id != extensionId">
+                <img class="extensions__icon" ng-src="chrome://extension-icon/gomekmidlodglbbmalcneegieacbdmki/16/0" ng-srcset="chrome://extension-icon/gomekmidlodglbbmalcneegieacbdmki/256/0 2x" src="chrome://extension-icon/gomekmidlodglbbmalcneegieacbdmki/16/0" srcset="chrome://extension-icon/gomekmidlodglbbmalcneegieacbdmki/256/0 2x">
+                <span class="extensions__title ng-binding" title="Avast Browser Security and Web Reputation Plugin.">Avast Online Security</span>
+                <span class="extensions__manage ng-binding" ng-click="enable(item)">Disable</span>
+                <span class="cancel" title="Remove form Chrome" ng-click="uninstall(item.id)"></span>
+            </li><!-- end ngIf: item.id != extensionId --><!-- end ngRepeat: item in filteredExtensions=( extensions | filter:{type:'extension'} ) --><!-- ngIf: item.id != extensionId --><li class="extensions__item ng-scope" ng-repeat="item in filteredExtensions=( extensions | filter:{type:&#39;extension&#39;} )" ng-class="{&#39;disabled&#39; : !item.enabled}" ng-if="item.id != extensionId">
+                <img class="extensions__icon" ng-src="chrome://extension-icon/ngpampappnmepgilojfohadhhmbhlaek/16/0" ng-srcset="chrome://extension-icon/ngpampappnmepgilojfohadhhmbhlaek/128/0 2x" src="chrome://extension-icon/ngpampappnmepgilojfohadhhmbhlaek/16/0" srcset="chrome://extension-icon/ngpampappnmepgilojfohadhhmbhlaek/128/0 2x">
+                <span class="extensions__title ng-binding" title="Download files with Internet Download Manager">IDM Integration Module</span>
+                <span class="extensions__manage ng-binding" ng-click="enable(item)">Disable</span>
+                <span class="cancel" title="Remove form Chrome" ng-click="uninstall(item.id)"></span>
+            </li><!-- end ngIf: item.id != extensionId --><!-- end ngRepeat: item in filteredExtensions=( extensions | filter:{type:'extension'} ) -->
+        </ul>
+    </div>
+</div>
+</open-plugins>
+
+
+
+</body></html>

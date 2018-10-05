@@ -1,0 +1,13 @@
+/**
+ * Created by declan on 2016/08/04.
+ */
+(function($){
+
+    if( $('#breadcrumbs__item--link').length > 0 )
+    {
+        var referrer =  document.referrer;
+
+        $('#breadcrumbs__item--link').attr('href', referrer);
+    }
+
+})(jQuery);

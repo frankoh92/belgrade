@@ -1,0 +1,37 @@
+(function ($) {
+    'use strict';
+
+    $(document).ready(function () {
+        var jsDom = $('html.js'),
+            polls = $('.onnet-poll'),
+            pollOptions = $('input[name=pollOption]');
+        // Bail if no poll exists or the device does not support js.
+        if (polls === undefined || jsDom === undefined) {
+            return;
+        }
+        pollOptions.one('click', function () {
+            var tmpl = $.templates("#pollResults"), // Get compiled template
+                form = $(this).parents('form');
+            $.ajax(
+                {
+                    'method' : 'POST',
+                    'url'   : OnNetPoll.ajaxUrl,
+                    'dataType'   : 'json',
+                    'data' : {
+                        'action' : 'submit_poll',
+                        'nonce' : OnNetPoll.requestNonce,
+                        'poll' : $(this).parents('.onnet-poll').attr('id'),
+                        'pollOption' : $(this).val()
+                    },
+                    success : function(data) {
+                        var html = tmpl.render(data.options),      // Render template using data - as HTML string
+                            wrapper = form.parent().find('ul');
+                        form.remove();
+                        wrapper.html(html);
+                    }
+                }
+            );
+        });
+    });
+
+})(jQuery);

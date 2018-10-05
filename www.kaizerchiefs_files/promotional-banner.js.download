@@ -1,0 +1,23 @@
+(function ($) {
+    'use strict';
+
+    $(document).ready(function () {
+
+        $(".close-up").click(function () {
+            var theUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            var admin_url = window.location.protocol + "//" + window.location.host + "/wp-admin/admin-ajax.php";
+
+            $.ajax({
+                type: "POST",
+                data: {
+                    action: 'promotional_banner',
+                },
+                dataType: "html",
+                url: admin_url,
+            });
+
+        });
+
+    });
+
+})(jQuery);
